@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-Main<prm-api>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.stevenstier.Main",
+			"projectName": "prm-api",
+			"args": ""
+		}
+	]
+}

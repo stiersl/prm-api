@@ -1,0 +1,667 @@
+{
+	"info": {
+		"_postman_id": "1bb923d5-1bfc-46e2-b98d-2036ad01c5f5",
+		"name": "PRM Variable Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get All Variables-remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b3afff5-c4a6-4442-8890-42b0905dcfba",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let item_count =  pm.response.json().length;",
+							"pm.variables.set(\"item_count\", item_count);",
+							"",
+							"",
+							"pm.test(\"There should be at least one variable returned\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(item_count).to.be.above(0);",
+							"});",
+							"",
+							"pm.test(\"Response includes 'varId', 'varName', and 'varDesc'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"varId\");",
+							"    pm.expect(pm.response.text()).to.include(\"varName\");",
+							"    pm.expect(pm.response.text()).to.include(\"varDesc\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.100.8:8080/prm/api/variables/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"100",
+						"8"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variables",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get All Variables",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prm/api/variables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prm",
+								"api",
+								"variables"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Apr 2020 00:05:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"varId\": 1,\n        \"varName\": \"HT1Temp\",\n        \"serverId\": 1,\n        \"varDesc\": \"Hot Tub 1 Temperature\",\n        \"varDescG\": null,\n        \"varType\": \"N\",\n        \"engUnits\": \"deg F\",\n        \"precison\": 1,\n        \"maxScale\": 100.11,\n        \"minScale\": 0.11,\n        \"snapshotRate\": 60,\n        \"snapshotTreshold\": 0,\n        \"lastValue\": null,\n        \"lastSampleTime\": null,\n        \"lastQuality\": null,\n        \"active\": true\n    },\n    {\n        \"varId\": 2,\n        \"varName\": \"Grow1Temp\",\n        \"serverId\": 1,\n        \"varDesc\": \"Grow Area 1 Temperature\",\n        \"varDescG\": null,\n        \"varType\": \"N\",\n        \"engUnits\": \"deg F\",\n        \"precison\": 1,\n        \"maxScale\": 100.22,\n        \"minScale\": 0.22,\n        \"snapshotRate\": 60,\n        \"snapshotTreshold\": 0,\n        \"lastValue\": null,\n        \"lastSampleTime\": null,\n        \"lastQuality\": null,\n        \"active\": true\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get All Variables-localhost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "11866747-92fe-48fb-a1ff-3dd3d55317f1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let item_count =  pm.response.json().length;",
+							"pm.variables.set(\"item_count\", item_count);",
+							"",
+							"",
+							"pm.test(\"There should be at least one variable returned\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(item_count).to.be.above(0);",
+							"});",
+							"",
+							"pm.test(\"Response includes 'varId', 'varName', and 'varDesc'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"varId\");",
+							"    pm.expect(pm.response.text()).to.include(\"varName\");",
+							"    pm.expect(pm.response.text()).to.include(\"varDesc\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/prm/api/variables/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variables",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get All Variables",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prm/api/variables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prm",
+								"api",
+								"variables"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Apr 2020 00:05:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"varId\": 1,\n        \"varName\": \"HT1Temp\",\n        \"serverId\": 1,\n        \"varDesc\": \"Hot Tub 1 Temperature\",\n        \"varDescG\": null,\n        \"varType\": \"N\",\n        \"engUnits\": \"deg F\",\n        \"precison\": 1,\n        \"maxScale\": 100.11,\n        \"minScale\": 0.11,\n        \"snapshotRate\": 60,\n        \"snapshotTreshold\": 0,\n        \"lastValue\": null,\n        \"lastSampleTime\": null,\n        \"lastQuality\": null,\n        \"active\": true\n    },\n    {\n        \"varId\": 2,\n        \"varName\": \"Grow1Temp\",\n        \"serverId\": 1,\n        \"varDesc\": \"Grow Area 1 Temperature\",\n        \"varDescG\": null,\n        \"varType\": \"N\",\n        \"engUnits\": \"deg F\",\n        \"precison\": 1,\n        \"maxScale\": 100.22,\n        \"minScale\": 0.22,\n        \"snapshotRate\": 60,\n        \"snapshotTreshold\": 0,\n        \"lastValue\": null,\n        \"lastSampleTime\": null,\n        \"lastQuality\": null,\n        \"active\": true\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get a Variable by ID-remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f45c2da7-7fcf-420c-ad84-a760b9c5fbc3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response includes 'varId', 'varName', and 'varDesc'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"varId\");",
+							"    pm.expect(pm.response.text()).to.include(\"varName\");",
+							"    pm.expect(pm.response.text()).to.include(\"varDesc\");",
+							"});",
+							"",
+							"let jsonData = pm.response.json();",
+							"pm.test(\"got back the same varID\", function () {",
+							"    pm.expect(jsonData[\"varId\"]).to.eql(2);",
+							"});",
+							"pm.test(\"got back the same varName\", function () {",
+							"    pm.expect(jsonData[\"varName\"]).to.eql(\"Grow1Temp\");",
+							"});",
+							"",
+							"pm.test(\"got back the same desc\", function () {",
+							"    pm.expect(jsonData[\"varDesc\"]).to.eql(\"Grow Area 1 Temperature\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.100.8:8080/prm/api/variables/2",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"100",
+						"8"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variables",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get a Variable by ID-localhost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4bb8784f-ca31-435b-bc68-d147aa88cc89",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response includes 'varId', 'varName', and 'varDesc'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"varId\");",
+							"    pm.expect(pm.response.text()).to.include(\"varName\");",
+							"    pm.expect(pm.response.text()).to.include(\"varDesc\");",
+							"});",
+							"",
+							"let jsonData = pm.response.json();",
+							"pm.test(\"got back the same varID\", function () {",
+							"    pm.expect(jsonData[\"varId\"]).to.eql(2);",
+							"});",
+							"pm.test(\"got back the same varName\", function () {",
+							"    pm.expect(jsonData[\"varName\"]).to.eql(\"Grow1Temp\");",
+							"});",
+							"",
+							"pm.test(\"got back the same desc\", function () {",
+							"    pm.expect(jsonData[\"varDesc\"]).to.eql(\"Grow Area 1 Temperature\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/prm/api/variables/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variables",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get variable history -remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b9682b8a-7d63-4186-bbaf-5f8d2c2440cf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let item_count =  pm.response.json().length;",
+							"pm.variables.set(\"item_count\", item_count);",
+							"",
+							"",
+							"pm.test(\"There should be at least one record returned\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(item_count).to.be.above(0);",
+							"});",
+							"",
+							"pm.test(\"Response includes 'varHistoryid', 'varId', 'sampleTime', 'varValue' and 'quality'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"varHistoryid\");",
+							"    pm.expect(pm.response.text()).to.include(\"varId\");",
+							"    pm.expect(pm.response.text()).to.include(\"sampleTime\");",
+							"     pm.expect(pm.response.text()).to.include(\"varValue\");",
+							"    pm.expect(pm.response.text()).to.include(\"quality\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.100.8:8080/prm/api/variableHistory/2",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"100",
+						"8"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variableHistory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get variable history -localhost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34265eb1-29f2-451e-91dd-a282a1fb0cc0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let item_count =  pm.response.json().length;",
+							"pm.variables.set(\"item_count\", item_count);",
+							"",
+							"",
+							"pm.test(\"There should be at least one record returned\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(item_count).to.be.above(0);",
+							"});",
+							"",
+							"pm.test(\"Response includes 'varHistoryid', 'varId', 'sampleTime', 'varValue' and 'quality'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"varHistoryid\");",
+							"    pm.expect(pm.response.text()).to.include(\"varId\");",
+							"    pm.expect(pm.response.text()).to.include(\"sampleTime\");",
+							"     pm.expect(pm.response.text()).to.include(\"varValue\");",
+							"    pm.expect(pm.response.text()).to.include(\"quality\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/prm/api/variableHistory/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variableHistory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert a Variable - remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ca79883-b7a7-4705-883b-8fc77f97b983",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"let jsonData = pm.response.json();",
+							"pm.variables.set(\"new_varId\", jsonData[\"varId\"]);",
+							"",
+							"pm.test(\"got back the same varName\", function () {",
+							"    pm.expect(jsonData[\"varName\"]).to.eql(\"API Inserted Variable\");",
+							"});",
+							"",
+							"pm.test(\"got back the same desc\", function () {",
+							"    pm.expect(jsonData[\"varDesc\"]).to.eql(\"API Varaible Desc\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"varName\": \"API Inserted Variable3\",\r\n        \"varDesc\": \"API Varaible Desc3\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.100.8:8080/prm/api/variables/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"100",
+						"8"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variables",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert a Variable - localhost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51d68c95-fc6a-4c74-b58b-113e542d565f",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"let jsonData = pm.response.json();",
+							"pm.variables.set(\"new_varId\", jsonData[\"varId\"]);",
+							"",
+							"pm.test(\"got back the same varName\", function () {",
+							"    pm.expect(jsonData[\"varName\"]).to.eql(\"API Inserted Variable\");",
+							"});",
+							"",
+							"pm.test(\"got back the same desc\", function () {",
+							"    pm.expect(jsonData[\"varDesc\"]).to.eql(\"API Varaible Desc\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"varName\": \"API Inserted Variable3\",\r\n        \"varDesc\": \"API Varaible Desc3\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prm/api/variables/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variables",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert a Variable History remote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a30239fc-31ac-4b12-bd44-5aa7ead3416b",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"varId\":2,\r\n    \t\"varValue\":\"1234.56\",\r\n\t\t\"timeStamp\":\"2020-04-30T15:28:07.0000000Z\",\r\n\t\t\"quality\":192\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.100.8:8080/prm/api/variableHistory/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"100",
+						"8"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variableHistory",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert a Variable History -localhost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18226434-c86a-41c4-bbe7-6ba6469c235a",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"varId\":2,\r\n    \t\"varValue\":\"1234.56\",\r\n\t\t\"timeStamp\":\"2020-04-30T15:28:07.0000000Z\",\r\n\t\t\"quality\":192\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/prm/api/variableHistory/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prm",
+						"api",
+						"variableHistory",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
